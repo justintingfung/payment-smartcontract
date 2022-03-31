@@ -45,6 +45,10 @@ contract Payment {
         return customerBalance[msg.sender];
     }
 
+    function getCustomerFriendList() external view returns (Friend[] memory) {
+        return customerFriendList[msg.sender];
+    }
+
     function depositMoney() public payable {
         require(msg.value != 0, "You need to deposit some amount of money!");
         customerBalance[msg.sender] += msg.value;
